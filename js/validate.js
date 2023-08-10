@@ -18,7 +18,6 @@ function checkValidate(
 ) {
   let isCheck = true;
 
-  console.log(!isNaN(username));
   //   Check Account
   if (username == 0) {
     setErr(accountErr, "Tài khoản không được để trống");

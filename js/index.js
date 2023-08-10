@@ -21,7 +21,6 @@ if (jsonData) {
 
 function themNhanVien() {
   let nv = layThongTinTuForm();
-  console.log(nv);
   let isValid = checkValidate(
     nv.username,
     nv.fullname,
@@ -70,9 +69,9 @@ function capNhatNhanVien() {
 
   let index = timViTri(nv.username, dsnv);
   dsnv[index] = nv;
-  renderDSNV(dsnv);
   let jsonData = JSON.stringify(dsnv);
   localStorage.setItem("DSNV", jsonData);
+  renderDSNV(dsnv);
 }
 
 document
