@@ -7,7 +7,7 @@ const salaryErr = document.querySelector("#tbLuongCB");
 const hourErr = document.querySelector("#tbGiolam");
 
 function checkValidate(
-  username,
+  account,
   fullname,
   email,
   password,
@@ -19,12 +19,13 @@ function checkValidate(
   let isCheck = true;
 
   //   Check Account
-  if (username == 0) {
+  if (account == 0) {
     setErr(accountErr, "Tài khoản không được để trống");
     isCheck = false;
-  } else if (isNaN(username)) {
+  } else if (isNaN(account)) {
+    console.log(account);
     setErr(accountErr, "Vui lòng nhập đúng định dạng");
-  } else if (username.toString().length < 4 || username.toString().length > 6) {
+  } else if (account.toString().length < 4 || account.toString().length > 6) {
     setErr(accountErr, "Tài khoản chỉ từ 4 - 6 ký số");
     isCheck = false;
   } else {

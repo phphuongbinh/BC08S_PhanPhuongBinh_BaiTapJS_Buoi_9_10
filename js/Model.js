@@ -1,5 +1,5 @@
 function NhanVien(
-  _username,
+  _account,
   _fullname,
   _email,
   _password,
@@ -8,7 +8,7 @@ function NhanVien(
   _position,
   _workingHour
 ) {
-  this.username = _username;
+  this.account = _account;
   this.fullname = _fullname;
   this.email = _email;
   this.password = _password;

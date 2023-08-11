@@ -1,5 +1,5 @@
 function layThongTinTuForm() {
-  let _username = document.getElementById("tknv").value * 1;
+  let _account = document.getElementById("tknv").value * 1;
   let _fullname = document.getElementById("name").value;
   let _email = document.getElementById("email").value;
   let _password = document.getElementById("password").value;
@@ -11,7 +11,7 @@ function layThongTinTuForm() {
   let _position = document.getElementById("chucvu").value;
   let _workingHour = document.getElementById("gioLam").value * 1;
   return new NhanVien(
-    _username,
+    _account,
     _fullname,
     _email,
     _password,
@@ -27,7 +27,7 @@ function renderDSNV(dsnv) {
   dsnv.forEach((el) => {
     let contentTr = `
         <tr>
-            <td>${el.username}</td>
+            <td>${el.account}</td>
             <td>${el.fullname}</td>
             <td>${el.email}</td>
             <td>${el.workingDay}</td>
@@ -36,12 +36,12 @@ function renderDSNV(dsnv) {
             <td>${el.xepLoai()}</td>
             <td class="d-flex border-bottom-0">
             <button class="btn btn-info mx-1" data-toggle="modal" data-target="#myModal" onclick="suaNhanVien('${
-              el.username
+              el.account
             }')">
             <i class="fa fa-pencil-square"></i>
             </button>
             <button class="btn btn-danger mx-1" onclick="xoaNhanVien('${
-              el.username
+              el.account
             }')">
             <i class="fa fa-trash" ></i>
             </button>
@@ -55,16 +55,16 @@ function renderDSNV(dsnv) {
 }
 
 function timViTri(account, dsnv) {
-  return dsnv.findIndex((el) => el.username == account);
+  return dsnv.findIndex((el) => el.account == account);
 }
 
 function showThongTinLenForm(nv) {
-  document.getElementById("tknv").value = nv.username;
+  document.getElementById("tknv").value = nv.account;
   document.getElementById("name").value = nv.fullname;
   document.getElementById("email").value = nv.email;
   document.getElementById("password").value = nv.password;
   document.getElementById("datepicker").value = nv.workingDay;
-  document.getElementById("luongCB").value = nv.basicSalary;
+  document.getElementById("luongCB").value = nv.basicSalary.toLocaleString();
   document.getElementById("chucvu").value = nv.position;
   document.getElementById("gioLam").value = nv.workingHour;
 }

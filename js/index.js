@@ -6,7 +6,7 @@ if (jsonData) {
   dsnv = list.map(
     (el) =>
       new NhanVien(
-        el.username,
+        el.account,
         el.fullname,
         el.email,
         el.password,
@@ -21,8 +21,9 @@ if (jsonData) {
 
 function themNhanVien() {
   let nv = layThongTinTuForm();
+  console.log(nv);
   let isValid = checkValidate(
-    nv.username,
+    nv.account,
     nv.fullname,
     nv.email,
     nv.password,
@@ -43,6 +44,7 @@ document.querySelector("#btnThemNV").addEventListener("click", themNhanVien);
 function suaNhanVien(account) {
   let index = timViTri(account, dsnv);
   showThongTinLenForm(dsnv[index]);
+  document.getElementById("tknv").disabled = true;
 }
 
 function xoaNhanVien(account) {
@@ -56,7 +58,7 @@ function xoaNhanVien(account) {
 function capNhatNhanVien() {
   let nv = layThongTinTuForm();
   let isValid = checkValidate(
-    nv.username,
+    nv.account,
     nv.fullname,
     nv.email,
     nv.password,
@@ -66,14 +68,20 @@ function capNhatNhanVien() {
     nv.workingHour
   );
   if (!isValid) return;
-
-  let index = timViTri(nv.username, dsnv);
+  let index = timViTri(nv.account, dsnv);
   dsnv[index] = nv;
   let jsonData = JSON.stringify(dsnv);
   localStorage.setItem("DSNV", jsonData);
   renderDSNV(dsnv);
+  document.querySelector("#btnCapNhat").dataset.dismiss = "modal";
+  document.getElementById("tknv").disabled = false;
 }
 
 document
   .querySelector("#btnCapNhat")
   .addEventListener("click", capNhatNhanVien);
+
+document.getElementById("btnDong").addEventListener("click", function () {
+  document.getElementById("tknv").disabled = false;
+  console.log("close");
+});
