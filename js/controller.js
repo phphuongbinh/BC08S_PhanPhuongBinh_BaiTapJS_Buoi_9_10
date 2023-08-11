@@ -32,7 +32,7 @@ function renderDSNV(dsnv) {
             <td>${el.email}</td>
             <td>${el.workingDay}</td>
             <td>${el.position}</td>
-            <td>${el.tinhTongLuong()}</td>
+            <td>${el.tinhTongLuong()?.toLocaleString()}</td>
             <td>${el.xepLoai()}</td>
             <td class="d-flex border-bottom-0">
             <button class="btn btn-info mx-1" data-toggle="modal" data-target="#myModal" onclick="suaNhanVien('${
@@ -64,7 +64,7 @@ function showThongTinLenForm(nv) {
   document.getElementById("email").value = nv.email;
   document.getElementById("password").value = nv.password;
   document.getElementById("datepicker").value = nv.workingDay;
-  document.getElementById("luongCB").value = nv.basicSalary.toLocaleString();
+  document.getElementById("luongCB").value = nv.basicSalary;
   document.getElementById("chucvu").value = nv.position;
   document.getElementById("gioLam").value = nv.workingHour;
 }

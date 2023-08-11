@@ -28,11 +28,6 @@ document.getElementById("eye").addEventListener(
   false
 );
 
-document.getElementById("btnDong").addEventListener("click", () => {
-  document.getElementById("tknv").disabled = false;
-  console.log("close");
-});
-
 //   font-family: 'Vibur', cursive;
 //   font-family: 'Abel', sans-serif;
 // font-family: 'Pacifico', cursive;
